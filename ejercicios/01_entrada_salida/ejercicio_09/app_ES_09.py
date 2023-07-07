@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Mayra 
+apellido: De Paula Salles
 ---
 Ejercicio: entrada_salida_09
 ---
@@ -46,12 +46,32 @@ class App(customtkinter.CTk):
         incremento= self.txt_incremento.get()
         incremento_numero= float(incremento)
 
+        #regla de tres simples
         resultado= sueldo_numero * incremento_numero / 100
         importe_sueldo= sueldo_numero + resultado
-        alert(title= "EJ 09", message= "El importe de sueldo actualizado es:" + importe_sueldo)
+        importe_sueldo_txt= str(importe_sueldo)
+        alert(title= "EJ 09", message= "El importe de sueldo actualizado es:" + importe_sueldo_txt)
+        #otra forma de sacar en porcentaje
+        '''
+        PRECIO= 1000 #precio bruto
+        #aumento= PRECIO * 10 / 100
+        #precio_final= PRECIO + aumento
+        
+        #otra forma de sacar el porcentaje con aumento
+        precio_final= PRECIO * 1.10 # el uno representa el PRECIO (el 100%) y el diez representa en porcentaje
+        
+        #si fuera con descuento
+        #descuento= PRECIO * 10 / 100
+        #precio_final= PRECIO - descuento
 
-        #numero = int(self.txt_sueldo.get())
-        #alert("lalal", numero)
+        #otra forma de sacar el porcentaje con descuento
+        # 100 - 10 =  90 
+        precio_final= PRECIO * 0.90 # 1 - 0.10 
+        alert(precio_final)
+        '''
+
+
+
         
     
 if __name__ == "__main__":
