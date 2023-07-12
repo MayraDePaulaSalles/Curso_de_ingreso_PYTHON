@@ -54,6 +54,8 @@ class App(customtkinter.CTk):
 
         alert(title= "Respuesta", message= mensaje)
         '''
+        
+        '''
         if edad_numero < 10:
             mensaje= "ES NIÑO/A"
 
@@ -69,9 +71,23 @@ class App(customtkinter.CTk):
                     mensaje= "ES MAYOR"
 
         alert(title= "Respuesta", message= mensaje)
-        #'''
+        '''
 
-        
+        if edad_numero >= 18: # 18 o mas
+            mensaje= "ES MAYOR"
+
+        else:  
+            if edad_numero >= 13: #17 o menos
+                    mensaje= "ES ADOLESCENTE"
+                
+            else:  
+                if edad_numero >= 10: # 12 o menos
+                    mensaje= "ES PRE-ADOLESCENTE"
+
+                else: 
+                    mensaje= "ES NIÑO/A"
+
+        alert(title= "Respuesta", message= mensaje)
     
 if __name__ == "__main__":
     app = App()
