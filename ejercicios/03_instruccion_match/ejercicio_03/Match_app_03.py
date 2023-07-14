@@ -4,6 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 
 '''
 Enuciado:
@@ -33,7 +37,16 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes= self.combobox_mes.get()
+
+        match mes:
+            case "Febrero":
+                mensaje= "Este mes no tiene más de 29 días"
+            case _:
+                mensaje= "Este mes tiene 30 días o mas"
+        
+        
+        alert(title= "Ej 03", message= mensaje)
     
     
 if __name__ == "__main__":

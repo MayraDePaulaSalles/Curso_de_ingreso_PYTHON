@@ -4,6 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 
 '''
 Enunciado:
@@ -34,7 +38,21 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        hora= self.txt_hora.get()
+        hora= int(hora)
+
+        match hora:
+            case 7 | 8 | 9 | 10 | 11:
+                mensaje= "Es de mañana"
+            case 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19:
+                mensaje= "Es de tarde"
+            case 20 | 21 | 22 | 23 | 24 | 0 | 1 | 2 | 3 | 4 | 5 | 6:
+                mensaje= "Es de noche"
+            case _:
+                mensaje= "La hora no existe"
+        
+        alert(title= "EJ 06", message= mensaje)
+
     
     
 if __name__ == "__main__":

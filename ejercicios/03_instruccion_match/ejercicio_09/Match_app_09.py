@@ -4,6 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 
 '''
 Una agencia de viajes cobra $15.000 por cada estadía como base. 
@@ -52,7 +56,51 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        estacion= self.combobox_estaciones.get()
+        destino= self.combobox_destino.get()
+        PRECIO= 15000
+        
+        aumento_20= 15000 + (15000 * 20 / 100)
+        aumento_10= 15000 + (15000 * 10 / 100)
+        
+        descuento_20= 15000 - (15000 * 20 / 100)
+        descuento_10= 15000 - (15000 * 10 / 100)
+
+        match estacion:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+                        mensaje= "El total de la tarifa es de ${0}".format(aumento_20)
+                    case "Cataratas" | "Cordoba":
+                        mensaje= "El total de la tarifa es de ${0}".format(descuento_10)
+                    case _:
+                        mensaje= "El total de la tarifa es de ${0}".format(descuento_20)
+           
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+                        mensaje= "El total de la tarifa es de ${0}".format(descuento_20)
+                    case "Cataratas" | "Cordoba":
+                        mensaje= "El total de la tarifa es de ${0}".format(aumento_10)
+                    case _:
+                        mensaje= "El total de la tarifa es de ${0}".format(aumento_20)
+           
+            case "Primavera" | "Otoño":
+                match destino:
+                    case "Bariloche":
+                        mensaje= "El total de la tarifa es de ${0}".format(aumento_10)
+                    case "Cataratas":
+                        mensaje= "El total de la tarifa es de ${0}".format(aumento_10)
+                    case "Mar del plata":
+                        mensaje= "El total de la tarifa es de ${0}".format(aumento_10)
+                    case _:
+                        mensaje= "El total de la tarifa es de $15000"
+
+        
+        alert(title= "EJ 09", message= mensaje)
+
+        
+            
             
     
 if __name__ == "__main__":

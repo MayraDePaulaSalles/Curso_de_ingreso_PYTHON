@@ -4,7 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 '''
 Enunciado:
 Al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
@@ -36,7 +39,23 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes= self.combobox_mes.get()
+        #mensaje= None
+
+        match mes:
+            case "Julio" | "Agosto":
+                mensaje= "¡Abrígate que hace frío!"
+            case "Septiembre" | "Octubre" | "Noviembre" | "Diciembre":
+                mensaje= "¡Ya pasamos frío, ahora calor!"
+            case _:
+                mensaje= "Falta para el invierno.."
+
+        #if mensaje != None:
+
+        alert(title= "Ej 02", message= mensaje)
+            
+
+            
     
     
 if __name__ == "__main__":

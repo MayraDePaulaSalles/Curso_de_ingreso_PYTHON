@@ -4,6 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 
 '''
 Enunciado:
@@ -29,8 +33,19 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-    
+        destino= self.combobox_destino.get()
+
+        match destino:
+            case "Bariloche":
+                mensaje= "Esta en el Oeste"
+            case "Mar del plata":
+                mensaje= "Esta en el Este"
+            case "Cataratas":
+                mensaje= "Esta en el Norte"
+            case "Ushuaia":
+                mensaje= "Esta en el Sur"
+
+        alert(title= "EJ 07", message= mensaje)
     
 if __name__ == "__main__":
     app = App()
