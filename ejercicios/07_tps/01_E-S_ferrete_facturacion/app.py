@@ -48,13 +48,61 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        # A. Ingresar tres precios de productos y mostrar la suma de los mismos.
+        importe_1= self.txt_importe_1.get()
+        importe_1= float(importe_1)
+
+        importe_2= self.txt_importe_2.get()
+        importe_2= float(importe_2)
+
+        importe_3= self.txt_importe_3.get()
+        importe_3= float(importe_3)
+
+        suma_precios= importe_1 + importe_2 + importe_3
+        mensaje= "La suma de los tres precios es:" + str(suma_precios)
+
+        alert(title= "TP 01", message= mensaje)
 
     def btn_promedio_on_click(self):
-        pass
+        # B. Ingresar tres precios de productos y mostrar el promedio de los mismos.
+        importe_1= self.txt_importe_1.get()
+        importe_1= float(importe_1)
+
+        importe_2= self.txt_importe_2.get()
+        importe_2= float(importe_2)
+
+        importe_3= self.txt_importe_3.get()
+        importe_3= float(importe_3)
+
+        PRECIOS= 3
+
+        suma_precios= importe_1 + importe_2 + importe_3
+        promedio= suma_precios / 3
+
+        mensaje= "El promedio de los precios es:" + str(promedio)
+        
+        alert(title= "TP 01", message= mensaje)
 
     def btn_total_iva_on_click(self):
-        pass      
+        # C. ingresar tres precios de productos sumarlos y mostrar precio final (más IVA 21%). 
+        importe_1= self.txt_importe_1.get()
+        importe_1= float(importe_1)
+
+        importe_2= self.txt_importe_2.get()
+        importe_2= float(importe_2)
+
+        importe_3= self.txt_importe_3.get()
+        importe_3= float(importe_3)
+
+        IVA= 21
+
+        suma_precios= importe_1 + importe_2 + importe_3 
+
+        precio_final= suma_precios + (suma_precios * 21 / 100)
+
+        mensaje= "El precio final mas IVA es:" + str(precio_final)
+
+        alert(title= "TP 01", message= mensaje)
     
 if __name__ == "__main__":
     app = App()
