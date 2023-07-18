@@ -4,7 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 '''
 Enunciado:
 Al presionar el botón ‘Mostrar Iteración’, mostrar mediante alert 
@@ -24,7 +27,19 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        numero= 0
+        while (numero < 10): #de esta forma se excluye el numero maximo o limite
+            numero= numero + 1
+            alert(title= "EJ 01", message= str(numero))
+
+        """
+        numero= 1 #inicializacion de mi variable de control
+        while (numero <= 10): #condicion para controlar cuantas veces se debe iterar
+            alert(message= str(numero))
+            numero= numero + 1 #le sumo 1
+            
+            #sali del while
+        """
     
     
 if __name__ == "__main__":

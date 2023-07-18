@@ -4,7 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 '''
 Enunciado:
 Al presionar el botón ‘Validar letra’, mediante prompt solicitar al usuario que ingrese una letra. 
@@ -25,7 +28,10 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
-        pass
+        letra_ingresada= prompt("EJ 05", "Ingrese una letra").upper()
+        
+        while (letra_ingresada != "U" and letra_ingresada != "T" and letra_ingresada != "N"):
+            letra_ingresada= prompt("EJ 05", "Error, ingrese una letra")
             
     
 if __name__ == "__main__":

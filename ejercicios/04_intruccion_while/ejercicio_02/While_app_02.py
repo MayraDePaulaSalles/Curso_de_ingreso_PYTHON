@@ -4,7 +4,10 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 '''
 Enunciado:
 Al presionar el botón ‘Mostrar Iteración’, mostrar mediante alert 
@@ -24,8 +27,10 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
-    
+        numero= 10
+        while (numero > 0):
+            alert(title= "EJ 02", message= str(numero))
+            numero= numero - 1
     
 if __name__ == "__main__":
     app = App()
