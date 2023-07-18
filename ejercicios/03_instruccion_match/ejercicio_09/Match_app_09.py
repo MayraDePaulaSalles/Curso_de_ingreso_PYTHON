@@ -60,6 +60,7 @@ class App(customtkinter.CTk):
         destino= self.combobox_destino.get()
         PRECIO= 15000
         
+        #otra forma de hacer la operacion es iniciar el descuento y aumento en 0.
         aumento_20= 15000 + (15000 * 20 / 100)
         aumento_10= 15000 + (15000 * 10 / 100)
         
