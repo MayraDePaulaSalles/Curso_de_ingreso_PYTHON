@@ -39,6 +39,10 @@ class App(customtkinter.CTk):
             numero= numero + 1 #le sumo 1
             
             #sali del while
+
+            #validaciones para mas adelante
+            while  numero == None or numero.isdigit() == False or int(numero) < 0 or int(numero) > 9:
+            numero = prompt(title="UTN",prompt="ingrese un numero del 0 al 9")
         """
     
     
