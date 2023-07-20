@@ -39,13 +39,14 @@ class App(customtkinter.CTk):
         acumulador_positivos= 0
         multi_negativos= 1
 
+        
         while (True):
             numero= prompt("EJ 08", "Ingrese los numeros que quiera")
             
-            if (numero == None or numero == "0"):
+            if (numero == None or numero == "0"): # or numero == ""
                 break
  
-            numero= int(numero)
+            numero= float(numero)
             if (numero > 0):
                 acumulador_positivos= acumulador_positivos + numero
                 
@@ -61,7 +62,6 @@ class App(customtkinter.CTk):
         self.txt_producto.insert(0,multi_negativos)
 
     
-
 
     
 if __name__ == "__main__":
