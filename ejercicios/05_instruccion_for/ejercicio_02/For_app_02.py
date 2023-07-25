@@ -5,7 +5,10 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 import random
 
-
+'''
+nombre: Mayra
+apellido: De Paula Salles
+'''
 '''
 Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) con números DESCENDENTES, desde el 1 al 5.
 '''
@@ -23,7 +26,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass    
+        for i in range(5,0,-1):
+            alert(title="FOR 02", message= i)    
        
             
 
