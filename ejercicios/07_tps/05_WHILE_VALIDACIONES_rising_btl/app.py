@@ -5,6 +5,10 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+nombre: Mayra
+apellido: De Paula Salles
+'''
+'''
 Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
 por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
 
@@ -50,7 +54,45 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        respuesta_prompt= "si"
+
+        while (respuesta_prompt != None):
+            
+            apellido= prompt(title= "TP 05", prompt="Ingrese un apellido")
+            while (apellido.isdigit() or apellido == None):
+                apellido= prompt(title= "TP 05", prompt="Error, ingrese un apellido")
+            
+            edad= prompt(title= "TP 05", prompt="Ingrese una edad entre 18 y 90 años")
+            while (not edad.isdigit() or edad == None):
+                if (edad < 18 or edad > 90):
+                    break
+                edad= (prompt(title= "TP 05", prompt="Error, ingrese una edad entre 18 y 90 años"))
+            edad= int(edad)
+            
+            estado_civil= prompt(title= "TP 05", prompt="Ingrese un estado civil")
+            while (estado_civil.isdigit() or (estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a") or estado_civil == None):
+                estado_civil= prompt(title= "TP 05", prompt="Error, ingrese un estado civil")
+            
+            numero_legajo= prompt(title= "TP 05", prompt="Ingrese un numero de legajo")
+            while (not numero_legajo.isdigit() or numero_legajo == None ):
+                if (numero_legajo < 1000 and numero_legajo > 9999):
+                    break
+                numero_legajo= (prompt(title= "TP 05", prompt="Error, ingrese un numero de legajo"))
+            numero_legajo= int(numero_legajo)
+            
+            respuesta_prompt= prompt("TP 05", "¿Desea continuar?")
+
+        self.txt_apellido.delete(0,100000)
+        self.txt_apellido.insert(0,apellido)
+        
+        self.txt_edad.delete(0,100000)
+        self.txt_edad.insert(0,edad)
+        
+        estado_civil= self.combobox_tipo.set(estado_civil)
+        
+        self.txt_legajo.delete(0,100000)
+        self.txt_legajo.insert(0,numero_legajo)
+        
 
 
 if __name__ == "__main__":
