@@ -30,7 +30,8 @@ class App(customtkinter.CTk):
         flag= True
         for i in range(2,numero):
             if (numero % i == 0):
-                flag= False
+                flag= False #si es false entra en el true
+        
         if (flag == True and numero > 1):
             mensaje= "Es primo"
         else:
