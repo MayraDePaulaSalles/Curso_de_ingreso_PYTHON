@@ -91,38 +91,105 @@ class App(customtkinter.CTk):
         # 5- Una vez ingresada la cantidad se debe pedir por cada excursión el importe y el tipo de excursión (caminata  o vehículo).
         # informar cual es el precio más caro, el más barato y el promedio.
         # 6- Informar cual es el tipo de excursión (caminata  o vehículo) más seleccionada o si se seleccionó las mismas veces (caminata  o vehículo)
-        '''
-        nombre= prompt(title= "EJ Tour", prompt= "Ingrese un su nombre")
-        while nombre != str or nombre == None:
-            nombre= prompt(title= "EJ Tour", prompt= "Error, ingrese un su nombre")
         
-        edad= int(prompt(title= "EJ Tour", prompt= "Ingrese su edad"))
-        while edad != int or edad < 0:
-            edad= int(prompt(title= "EJ Tour", prompt= "Error, ingrese su edad"))
-        
-        genero= prompt(title= "EJ Tour", prompt= "Ingrese su genero: F, M, NB")
-        while genero != str or (genero != "F" and genero != "M" and genero != "NB"):
-            genero= prompt(title= "EJ Tour", prompt= "Error, ingrese su genero: F, M, NB")
-        
-        altura= int(prompt(title= "EJ Tour", prompt= "Ingrese su altura"))
-        while altura != int:
-            altura= int(prompt(title= "EJ Tour", prompt= "Error, ingrese su altura"))
-        '''
-        '''
-        mensaje= "usted es  {0} tiene {1} de edad y su género es {2}".format(nombre,edad,genero)
-        #alert(title= "EJ Tour", message= mensaje)
+        respuesta_prompt= "si"
+        contador_excursiones= 0
+        bandera_primero= True
+        tipo_mas_caro= ""
+        tipo_mas_barato= ""
+        tipo_mas_seleccionado= ""
+        suma_excursiones= 0
+        cont_tipo_seleccionado= 0
+       
+        while (respuesta_prompt != None):
+            
+            nombre= prompt(title= "EJ Tour", prompt= "Ingrese su nombre")
+            while (not nombre.isalpha() or nombre == None):
+                nombre= prompt(title= "EJ Tour", prompt= "Error, ingrese su nombre")
 
-        if altura < 140:
-            mensaje= "Es bajo"
-        elif altura <= 170:
-            mensaje= "Es medio"
-        elif altura <= 190:
-            mensaje= "Es alto"
-        else:
-            mensaje="Es muy alto"
+            edad= prompt(title= "EJ Tour", prompt= "Ingrese su edad")
+            while (not edad.isdigit() or edad == None):
+              edad= prompt(title= "EJ Tour", prompt= "Error, ingrese su edad")
+            edad= int(edad)
+            
+            genero= prompt(title= "EJ Tour", prompt= "Ingrese su genero: F, M, NB")
+            while (not genero.isalpha() or (genero != "F" and genero != "M" and genero != "NB")or genero == None):
+                genero= prompt(title= "EJ Tour", prompt= "Error, ingrese su genero: F, M, NB")
+            
+            altura= prompt(title= "EJ Tour", prompt= "Ingrese su altura")
+            while (not altura.isdigit() or altura == None):
+                altura= prompt(title= "EJ Tour", prompt= "Error, ingrese su altura")
+                
+            altura= int(altura)
+            if altura < 140:
+                mensaje_dos= "es bajo/a"
+            elif altura <= 170:
+                mensaje_dos= "es medio alto/a"
+            elif altura <= 190:
+                mensaje_dos= "es alto/a"
+            else:
+                mensaje_dos= "es muy alto/a"
+            
+            
+            informe= "Usted es {0}, tiene {1} años de edad, su género es {2} y de altura mide {3},{4}".format(nombre,edad,genero,altura,mensaje_dos)
+                      
+            
+            cant_excursiones= prompt(title="EJ Tour", prompt= "Ingrese la cantidad de excursiones que realizara")
+            while (not cant_excursiones.isdigit() or cant_excursiones == None):
+              cant_excursiones= prompt(title= "EJ Tour", prompt= "Error, ingrese la cantidad de excursiones que realizara")
+            
+            cant_excursiones= int(cant_excursiones)
 
-        alert(title= "EJ Tour", message= mensaje)
-        '''
+            while (contador_excursiones < cant_excursiones):
+                
+                importe= prompt(title= "EJ Tour", prompt= "Ingrese su importe") 
+                while (not importe.isdigit() or importe == None):
+                    importe= prompt(title= "EJ Tour", prompt= "Error, ingrese su importe")
+                
+                importe= int(importe)
+           
+                tipo_excursion= prompt(title= "EJ Tour", prompt= "Ingrese el tipo de excursion: caminata o vehiculo")
+                while (not tipo_excursion.isalpha() or (tipo_excursion != "caminata" and tipo_excursion != "vehiculo") or tipo_excursion == None):
+                    tipo_excursion= prompt(title= "EJ Tour", prompt= "Error, ingrse tipo de excursion: caminata o vehiculo")
+
+                if (bandera_primero == True):
+                    precio_mas_caro= importe
+                    precio_mas_barato= importe
+                    tipo_mas_caro= tipo_excursion
+                    tipo_mas_barato= tipo_excursion
+                    tipo_mas_seleccionado= tipo_excursion
+                    bandera_primero = False 
+                else:
+                    if (importe > precio_mas_caro):
+                        precio_mas_caro = importe
+                        tipo_mas_caro = tipo_excursion
+
+                    elif (importe < precio_mas_barato):
+                        precio_mas_barato = importe
+                        tipo_mas_barato = tipo_excursion
+
+                    elif (tipo_excursion > tipo_mas_seleccionado):
+                        tipo_mas_seleccionado = tipo_excursion
+
+                #if (tipo_mas_seleccionado == "caminata" and tipo_mas_seleccionado == "vehiculo"):
+                         
+                
+                suma_excursiones= suma_excursiones + importe
+                contador_excursiones= contador_excursiones + 1
+                cont_tipo_seleccionado= cont_tipo_seleccionado + 1
+                
+            promedio_importe= suma_excursiones / cant_excursiones
+
+            informe= f"La excursion mas cara vale ${precio_mas_caro} y es de {tipo_mas_caro}\n\
+                La excursion mas barata vale ${precio_mas_barato} y es de {tipo_mas_barato}\n\
+                El tipo de excusion mas seleccionado fue:{tipo_mas_seleccionado}\n\
+                El promedio de precios de las excursiones es de ${promedio_importe}"
+            
+            
+            respuesta_prompt= prompt(title= "TP TOUR", prompt= "¿Desea continuar?")
+            
+            alert(title= "EJ Tour", message= informe)
+
 
 
 
